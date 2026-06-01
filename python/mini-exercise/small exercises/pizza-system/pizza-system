@@ -1,0 +1,106 @@
+import sys
+
+# Constants
+CURRENCY = "₦"
+SEPARATOR = "=" * 50
+
+
+def calculate_final_price(base_price, size_multiplier):
+    """
+    Calculate the final price after applying the size multiplier.
+
+    Args:
+        base_price (float): Base price of the pizza
+        size_multiplier (float): Size multiplier
+
+    Returns:
+        float: Total price rounded to 2 decimal places
+    """
+    return round(base_price * size_multiplier, 2)
+
+
+
+PIZZA_TYPES = {
+    "1": ("Classic Pizza", 500),
+    "2": ("Beef Lover", 700),
+    "3": ("Cheese Explosion", 600),
+    "4": ("Garden Fresh", 400)
+}
+
+PIZZA_SIZE = {
+    "1": ("Small", 0.5),
+    "2": ("Medium", 1.0),
+    "3": ("Large", 1.5)
+}
+
+# Sample orders
+orders = [
+    ("1", "2"),  # Order 1: Classic Pizza, Medium
+    ("2", "3"),  # Order 2: Beef Lover, Large
+    ("3", "1"),  # Order 3: Cheese Explosion, Small
+    ("4", "2"),  # Order 4: Garden Fresh, Medium
+    ("1", "3")   # Order 5: Classic Pizza, Large
+]
+
+
+def process_batch_orders(orders_list):
+    """
+    Process all orders in a batch
+
+    Args:
+        orders_list (list): List of (pizza_code, size_code) tuples
+
+    Returns:
+        float: Total revenue from all orders
+    """
+    total_revenue = 0
+
+    print("===== PROCESSING BATCH ORDERS ====")
+
+    for order_number, (pizza_code, size_code) in enumerate(orders, 1):
+        # Validate codes exist
+        if pizza_code not in PIZZA_TYPES:
+            print(f"❌ ERROR: Invalid pizza code '{pizza_code}' in Order #{order_number}")
+            continue
+
+        if size_code not in PIZZA_SIZE:
+            print(f"❌ ERROR: Invalid pizza code '{size_code}' in Order #{order_number}")
+            continue
+
+        # Get pizza details
+        pizza_type, pizza_price = PIZZA_TYPES[pizza_code]
+
+        # Get size details
+        size_name, multiplier = PIZZA_SIZE[size_code]
+
+        # Calculate total
+        order_total = calculate_final_price(pizza_price, multiplier)
+        total_revenue += order_total
+
+        # Display order
+        print(f"📋 Order #{order_number}:")
+        print(f" 🍕 Pizza: {pizza_type}")
+        print(f" 📏 Size: {size_name}")
+        print(f" 💰 Base: {pizza_price:.2f}{CURRENCY}")
+        print(f" 📃 Total: {order_total}{CURRENCY}")
+        print("-" * 40)
+
+    return total_revenue
+
+
+def display_summary(total, order_count):
+    """Display final Summary Statistics"""
+    print(SEPARATOR)
+    print("📊 ORDER SUMMARY")
+    print(SEPARATOR)
+    print(f" Total orders processed: {order_count}")
+    print(f" Total revenue: {total:.2f}{CURRENCY}")
+    print(f" Average order value: {total / order_count:.2f}{CURRENCY}")
+    print(SEPARATOR)
+    print("\n ✅ All orders processed successfully!")
+
+
+# Main execution
+if __name__ == "__main__":
+    # Process all orders
+    revenue = process_batch_orders(orders)

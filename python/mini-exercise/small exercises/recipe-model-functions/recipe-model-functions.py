@@ -22,10 +22,10 @@ def make_donuts(glaze_type, sprinkles=False):
         '✨ plain donut'
     """
 
-    # Step 1: Start with base donut (always the same)
+    # Start with base donut (always the same)
     donut = "plain donut"
 
-    # Step 2: Add glaze based on ingredient
+    # glaze based on ingredient
     if glaze_type == "chocolate":
         donut = "🍫 " + donut
     elif glaze_type == "caramel":
@@ -34,11 +34,11 @@ def make_donuts(glaze_type, sprinkles=False):
         # Default for any other glaze type
         donut = "✨ " + donut
 
-    # Step 3: Add sprinkles if requested
+    # Add sprinkles if requested
     if sprinkles:
         donut = donut + " with rainbow sprinkles 🌈"
 
-    # Step 4: Return the finished product
+    # Return the finished product
     return donut
 
 # TEST THE FUNCTION
