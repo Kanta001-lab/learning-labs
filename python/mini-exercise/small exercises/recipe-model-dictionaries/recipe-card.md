@@ -4,7 +4,7 @@
 #### PIZZA RECIPE CARD (Dictionary Version) 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ PIZZA RECIPE: make_pizza                            │
+│ PIZZA RECIPE: make pizza                            │
 ├─────────────────────────────────────────────────────┤
 │ INPUTS                                              │
 │   pizza_type      → "pepperoni"                     │
@@ -18,7 +18,7 @@
 │   4. Build pizza description                        │
 ├─────────────────────────────────────────────────────┤
 │ OUTPUT                                              │
-│   🍕 Pepperoni Pizza + 🍄 Mushroom                  │
+│   🍕 Pepperoni Pizza + 🍄 Mushroom                 │
 ├─────────────────────────────────────────────────────┤
 │ CONCEPTS                                            │
 │   • Dictionary Lookup                               │
