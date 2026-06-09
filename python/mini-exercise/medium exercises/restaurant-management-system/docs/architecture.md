@@ -6,24 +6,26 @@
 │                              (Class)                                    │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│  DATA STORAGE:                                                          │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────────────┐   │
-│  │   orders     │  │  customers   │  │        daily_stats           │   │
-│  │   (list)     │  │ (defaultdict)│  │        (dict)                │   │
-│  ├──────────────┤  ├──────────────┤  ├──────────────────────────────┤   │
-│  │ [{order1},   │  │ "Jack": [    │  │ "revenue": 0                 │   │
-│  │  {order2},   │  │   {order1},  │  │ "orders_count": 0            │   │
-│  │  {order3}]   │  │   {order4}]  │  │ "popular_items": Counter()   │   │
-│  └──────────────┘  └──────────────┘  └──────────────────────────────┘   │
+│  DATA STRUCTURES:                                                       │
+│  ┌─────────────────────────────────────────────────────────────────┐    │
+│  │ orders (list): List of order dictionaries                       │    │
+│  │ customers (defaultdict): Customer name → list of orders         │    │
+│  │ hourly_orders (defaultdict): Hour → list of orders              │    │
+│  │ total_revenue (float): Running total of all sales               │    │
+│  │ popular_items (Counter): Item name → quantity sold              │    │
+│  └─────────────────────────────────────────────────────────────────┘    │
 │                                                                         │
 │  METHODS:                                                               │
 │  ┌─────────────────────────────────────────────────────────────────┐    │
-│  │ add_order()        - Add new order to system                    │    │
-│  │ get_customer_history() - Get all orders for a customer          │    │
-│  │ get_hourly_summary()   - Group orders by hour                   │    │
-│  │ print_dashboard()      - Display all statistics                 │    │
+│  │ open_restaurant()      - Opens for business                     │    │
+│  │ close_restaurant()     - Closes and generates report            │    │
+│  │ take_order()           - Processes a new order                  │    │
+│  │ get_customer_history() - Shows customer's order history         │    │
+│  │ get_hourly_summary()   - Analyzes orders by hour with bar chart │    │
+│  │ get_popular_item()     - Shows top selling items                │    │
+│  │ generate_daily_report()- Generates end-of-day report            │    │
+│  │ simulate_busy_hour()   - Creates random orders for an hour      │    │
 │  └─────────────────────────────────────────────────────────────────┘    │
-│                                                                         │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
