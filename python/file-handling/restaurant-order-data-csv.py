@@ -1,0 +1,26 @@
+import csv
+from datetime import datetime
+
+
+# Mock restaurant orders CSV
+restaurant_orders = [
+    ["order_id", "customer_name", "item", "quantity", "price", "order_date", "status"],
+    [1001, "John Smith", "Margherita Pizza", 2, 8000, "2024-01-15", "delivered"],
+    [1002, "Emma Johnson", "Caesar Salad", 1, 4500, "2024-01-15", "delivered"],
+    [1003, "Michael Brown", "Spaghetti Carbonara", 1, 6500, "2024-01-16", "preparing"],
+    [1004, "Sarah Wilson", "Garlic Bread", 3, 2500, "2024-01-16", "delivered"],
+    [1005, "James Davis", "Tiramisu", 2, 4500, "2024-01-17", "cancelled"],
+    [1006, "Lisa Anderson", "Fettuccine Alfredo", 1, 11000, "2024-01-17", "delivered"],
+    [1007, "Robert Martinez", "Pepperoni Pizza", 1, 8000, "2024-01-18", "preparing"],
+    [1008, "Maria Garcia", "Bruschetta", 2, 6500, "2024-01-18", "delivered"],
+    [1009, "David Lee", "Chicken Parmesan", 1, 10000, "2024-01-19", "delivered"]
+]
+
+with open("restaurant_orders.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(restaurant_orders)
+
+with open("restaurant_orders.csv", "r", newline="") as f:
+    reader = csv.reader(f)
+    for line in reader:
+        print(line)
